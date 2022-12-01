@@ -1,0 +1,68 @@
+openapi: 3.0.1
+info:
+  title: Texo Assessment
+  description: An API to show the producers with min/max intervals of the Golden Raspberry Awards
+  version: 1.0.0
+servers:
+  - url: /winners
+tags:
+  - name: golden-rasperry-awards worst-movie
+paths:
+  /winners:
+    get:
+      operationId: globalRaspberryAwards
+      summary: It shows the winners of the Global Raspberry Awars with the min and max interval between the awards
+      responses:
+        '204':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WinnersDto'
+        '400':
+          description: An error has happened
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorHandlerDto'
+
+components:
+  schemas:
+    ErrorHandlerDto:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 999999999
+          format: int64
+        message:
+          type: string
+          example: An error has happend getting the winners
+    WinnersDto:
+      type: object
+      properties:
+        min:
+          type: array
+          items:
+            $ref: '#/components/schemas/WinnerDto'
+        max:
+          type: array
+          items:
+            $ref: '#/components/schemas/WinnerDto'
+    WinnerDto:
+      type: object
+      properties:
+        producer:
+          type: string
+          example: Bo Derek
+        interval:
+          type: integer
+          format: int32
+          example: 10
+        followingWin:
+          type: integer
+          example: 2020
+          format: int32
+        previousWin:
+          type: integer
+          example: 2010
+          format: int32
