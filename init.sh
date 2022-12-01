@@ -4,24 +4,30 @@
 
 function run_app
 {
-	#git clone 
+	if [ ! -d "texo-assessment" ]; then
+	  	git clone https://github.com/marcelsamaruga/texo-assessment.git
+	fi
+
+	cd "texo-assessment"
+
+	chmod 777 mvnw
 
 	printf "\nCompiling project"
 	./mvnw clean package
 	
-	printf "\n\nBuilding a new version"
-	docker build -t texo-assessment:latest .
+	java -jar target/assessment-0.0.1-SNAPSHOT.jar
 
-	printf "\n\nRunning the app"
-	docker run -d -p 8080:8080 -p 80:8080 -p 443:8443 --name texo-assessment -t texo-assessment
-	
 	printf "You can reach now http://localhost:8080/winners to retrieve max and min Global Raspberry Awards winners"
 }
 
 function run_integration_tests
 {
-	#git clone 
-	
+	if [ ! -d "texo-assessment" ]; then
+	  	git clone https://github.com/marcelsamaruga/texo-assessment.git
+	fi
+
+	cd "texo-assessment"
+
 	printf "\nRunning integration tests"
 	./mvnw clean test
 	printf "\n\nIntegration tests has been completed"
