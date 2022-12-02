@@ -34,7 +34,9 @@ It should expose an API showing the producers with min/max intervals of the Gold
 ````
 
 ## Running Application
+Download [init.sh](https://github.com/marcelsamaruga/texo-assessment/blob/main/init.sh)
 Run the bash file init.sh
+To run on Windows, you need to use WSL (Windows Subsystem for Linux)
 
 Choose one of the following options:
 ### Texo Assessment ####
