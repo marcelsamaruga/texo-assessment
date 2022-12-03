@@ -13,11 +13,9 @@ function run_app
 	chmod 777 mvnw
 
 	printf "\nCompiling project"
-	./mvnw clean package
+	./mvnw clean package -DskipTests=true
 	
 	java -jar target/assessment-0.0.1-SNAPSHOT.jar
-
-	printf "You can reach now http://localhost:8080/winners to retrieve max and min Global Raspberry Awards winners"
 }
 
 function run_integration_tests
@@ -26,9 +24,11 @@ function run_integration_tests
 	  	git clone https://github.com/marcelsamaruga/texo-assessment.git
 	fi
 
+	chmod 777 mvnw
+
 	cd "texo-assessment"
 
-	printf "\nRunning integration tests"
+	printf "\nRunning integration tests\n\n"
 	./mvnw clean test
 	printf "\n\nIntegration tests has been completed"
 }
@@ -50,4 +50,3 @@ case $choice in
   2) run_integration_tests ;;
   *) printf "invalid option" ;;
 esac
-
