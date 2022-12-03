@@ -1,7 +1,7 @@
 # Getting Started
 * Author: Marcel Samaruga da Costa
 * Github: http://github.com/marcelsamaruga
-* Date: Dec 4th 2022
+* Last Update: Dec 3rd 2022
 
 ## TEXO Assessment
 The api is an assessment to join Texo.
@@ -11,7 +11,7 @@ It should expose an API showing the producers with min/max intervals of the Gold
 ## Endpoints
 ### Show the producers with max/min intervals 
 * [/winners](http://localhost:8080/winners)
-#### Response:
+#### Response (example):
 ````
 {
     "min": [
@@ -35,8 +35,12 @@ It should expose an API showing the producers with min/max intervals of the Gold
 
 ## Running Application
 Download [init.sh](https://github.com/marcelsamaruga/texo-assessment/blob/main/init.sh)
-Run the bash file init.sh
-To run on Windows, you need to use WSL (Windows Subsystem for Linux)
+Run the bash file init.sh.
+Remember to give the right permission. [Permission](https://www.andrewcbancroft.com/blog/musings/make-bash-script-executable/)
+
+` chmod u+x deploy.sh `
+
+To run on Windows, you need to use WSL (Windows Subsystem for Linux).
 
 Choose one of the following options:
 ### Texo Assessment ####
@@ -44,9 +48,10 @@ Choose one of the following options:
 2) Run Integration Tests
 
 #### Running the app
-* The command will clone the project from the github repository if wasn't before
-* Run maven command to package the application
+* The command will clone the project from the github repository (if wasn't before)
+* Run maven command to package the application skipping the tests.
 * Run the app
+* Endpoint [/winners](http://localhost:8080/winners) is available.
 
 Example:
 
@@ -56,6 +61,7 @@ Example:
 ```
 
 #### Running integration tests
-* The command will clone the project from the github repository if wasn't before
+* The command will clone the project from the github repository (if wasn't before)
 * Run maven command to test the application
+* It should display "Integration tests has been completed"
 
