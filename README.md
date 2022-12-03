@@ -38,7 +38,7 @@ Download [init.sh](https://github.com/marcelsamaruga/texo-assessment/blob/main/i
 Run the bash file init.sh.
 Remember to give the right permission. [Permission](https://www.andrewcbancroft.com/blog/musings/make-bash-script-executable/)
 
-` chmod u+x deploy.sh `
+` chmod u+x init.sh `
 
 To run on Windows, you need to use WSL (Windows Subsystem for Linux).
 
