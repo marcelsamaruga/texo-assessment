@@ -24,9 +24,9 @@ function run_integration_tests
 	  	git clone https://github.com/marcelsamaruga/texo-assessment.git
 	fi
 
-	chmod 777 mvnw
-
 	cd "texo-assessment"
+	
+	chmod 777 mvnw
 
 	printf "\nRunning integration tests\n\n"
 	./mvnw clean test
