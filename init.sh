@@ -12,6 +12,8 @@ function run_app
 
 	chmod 777 mvnw
 
+	git pull origin main
+
 	printf "\nCompiling project"
 	./mvnw clean package -DskipTests=true
 	
@@ -27,6 +29,8 @@ function run_integration_tests
 	cd "texo-assessment"
 	
 	chmod 777 mvnw
+
+	git pull origin main
 
 	printf "\nRunning integration tests\n\n"
 	./mvnw clean test

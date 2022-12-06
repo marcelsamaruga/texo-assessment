@@ -63,7 +63,8 @@ public class MoviesLoader {
     }
 
     private <T> List<T> strToListObj(String value, Function<String, T> function) {
-        return Arrays.stream(value.split(","))
+        return Arrays.stream(value.split(" and |,"))
+                .filter(name -> value != null && !"".equals(name))
                 .map(name -> {
                     var obj = function.apply(Objects.requireNonNull(name).trim());
                     return obj;

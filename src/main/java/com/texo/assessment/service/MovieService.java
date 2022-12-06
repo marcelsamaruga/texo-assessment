@@ -31,18 +31,26 @@ public class MovieService {
                 .map(converter::toWinnerDto)
                 .collect(Collectors.toList());
 
-        var minWinners = winners.stream()
-                .min(Comparator.comparing(WinnerDto::getInterval))
-                .stream().collect(Collectors.toList());
+        var minInterval = winners.stream()
+                .mapToInt(WinnerDto::getInterval)
+                .min()
+                .getAsInt();
 
-        var maxWinners = winners.stream()
-                .max(Comparator.comparing(WinnerDto::getInterval))
-                .stream().collect(Collectors.toList());
+        var maxInterval = winners.stream()
+                .mapToInt(WinnerDto::getInterval)
+                .max()
+                .getAsInt();
 
         return WinnersDto.builder()
-                .min(minWinners)
-                .max(maxWinners)
+                .min(getWinners(minInterval, winners))
+                .max(getWinners(maxInterval, winners))
                 .build();
+    }
+
+    private List<WinnerDto> getWinners(int numberToCompare, List<WinnerDto> winners) {
+        return winners.stream()
+                .filter(winner -> winner.getInterval() == numberToCompare)
+                .collect(Collectors.toList());
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)

@@ -14,22 +14,22 @@ It should expose an API showing the producers with min/max intervals of the Gold
 #### Response (example):
 ````
 {
-    "min": [
-        {
-            "producer": "Matthew Vaughn",
-            "interval": 13,
-            "previousWin": 2002,
-            "followingWin": 2015
-        }
-    ],
-    "max": [
-        {
-            "producer": "Bo Derek",
-            "interval": 66,
-            "previousWin": 1924,
-            "followingWin": 1990
-        }
-    ]
+   "min":[
+      {
+         "producer":"Joel Silver",
+         "interval":1,
+         "previousWin":1990,
+         "followingWin":1991
+      }
+   ],
+   "max":[
+      {
+         "producer":"Matthew Vaughn",
+         "interval":13,
+         "previousWin":2002,
+         "followingWin":2015
+      }
+   ]
 }
 ````
 
@@ -57,7 +57,7 @@ Example:
 
 ```
 ➜  ~ curl http://localhost:8080/winners
-{"min":[{"producer":"Bo Derek","interval":6,"previousWin":1984,"followingWin":1990}],"max":[{"producer":"Matthew Vaughn","interval":13,"previousWin":2002,"followingWin":2015}]}%
+{"min":[{"producer":"Joel Silver","interval":1,"previousWin":1990,"followingWin":1991}],"max":[{"producer":"Matthew Vaughn","interval":13,"previousWin":2002,"followingWin":2015}]}
 ```
 
 #### Running integration tests
