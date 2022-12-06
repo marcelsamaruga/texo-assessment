@@ -34,12 +34,12 @@ public class MovieService {
         var minInterval = winners.stream()
                 .mapToInt(WinnerDto::getInterval)
                 .min()
-                .getAsInt();
+                .orElse(0);
 
         var maxInterval = winners.stream()
                 .mapToInt(WinnerDto::getInterval)
                 .max()
-                .getAsInt();
+                .orElse(Integer.MAX_VALUE);
 
         return WinnersDto.builder()
                 .min(getWinners(minInterval, winners))
